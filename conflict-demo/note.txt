@@ -1,1 +1,1 @@
-Welcome To Branch A
+Welcome To Branch A and Branch B (merged)
