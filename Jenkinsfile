@@ -23,6 +23,11 @@ pipeline {
                 echo 'Running unit tests...'
                 sh 'mvn -B test'
             }
+            post {
+                always {
+                    junit 'target/surefire-reports/*.xml'
+                }
+            }
         }
         stage('Archive') {
             steps {
@@ -54,7 +59,7 @@ pipeline {
             sh "docker rmi ${IMAGE_NAME}:${IMAGE_TAG} ${IMAGE_NAME}:latest || true"
         }
         success {
-            echo 'Pipeline completed successfully! Image pushed as ' + "${IMAGE_NAME}:${IMAGE_TAG}"
+            echo 'Pipeline completed successfully!'
         }
         failure {
             echo 'Pipeline failed. Check logs above.'
