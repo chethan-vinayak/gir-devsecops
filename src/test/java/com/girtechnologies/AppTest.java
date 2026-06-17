@@ -1,20 +1,28 @@
 package com.girtechnologies;
 
-import static org.junit.Assert.assertTrue;
-
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
+public class AppTest
 {
-    /**
-     * Rigorous Test :-)
-     */
     @Test
-    public void shouldAnswerWithTrue()
+    public void testGreet()
     {
-        assertTrue( true );
+        App app = new App();
+        assertEquals("Hello, GIR Intern!", app.greet("GIR Intern"));
+    }
+
+    @Test
+    public void testAdd()
+    {
+        App app = new App();
+        assertEquals(5, app.add(2, 3));
+    }
+
+    @Test
+    public void testAddNegative()
+    {
+        App app = new App();
+        assertEquals(-1, app.add(2, -3));
     }
 }
